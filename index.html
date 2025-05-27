@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mis Quince Tita</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Archivos JS (en orden) -->
+  <script type="module" src="config.js"></script>
+  <script type="module" src="loads.js"></script> <!-- Este carga nombre del invitado y pases -->
+  <script type="module" src="script.js"></script> <!-- Este controla apertura, música, contador, etc. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Infant:ital,wght@0,300..700;1,300..700&family=Imperial+Script&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <script src="https://cdn.lordicon.com/lordicon.js"></script>
+</head>
+<body>
+  
+    <!-- SOBRE -->
+    <section id="envelope">
+        <div id="envelope-top"></div>
+         <div id="seal">
+            <h2>Mis Quince Tita</h2> <!-- Tus iniciales -->
+        </div>
+        <div id="envelope-bottom"></div>
+    </section>
+    <div id="sparkle-container"></div>
+    <section id="intro-image" class="hidden fade-in-section">
+      <img src="/imagenes/foto-principal (1).png" alt="Foto de introducción" class="intro-img" />
+      <button id="continue-button" class="fade-in-button">Continúa a la invitación</button>
+    </section>
+    
+
+    <div class="main-content hidden">
+      <div id="sparkle-container"></div>
+      <!-- 1. Imagen de fondo del castillo -->
+<section id="hero">
+  <img src="/imagenes/castillo.png" alt="castillo" width="100%">
+</section>
+
+<!-- 2. “Once upon a time” en dorado -->
+<h1 class="text-golden">Once upon a time</h1>
+
+<!-- 3. Subtítulo -->
+<h2 class="text-blue subtitulo">En un lugar muy lejano</h2>
+
+<!-- 4. Imagen de fondo + Nombre de la quinceañera -->
+<section>
+  <img src="/imagenes/nombre.png" alt="Fondo nombre">
+  <h4 class="text-golden-name">Carmen Susana</h4>
+</section>
+
+<!-- 5. Agradecimiento -->
+<p class="padres-texto">Agradecidos con Dios y bajo su bendición, queremos celebrar los quinceaños de nuestra amada princesita.</p>
+
+<!-- 6. Nombres de los padres -->
+<h2 class="text-golden">Luis Armando & Alma Edith</h2>
+
+<!-- 7. Imagen decorativa -->
+<img src="/imagenes/13.png" alt="Decoración" width="100%">
+
+<!-- 8. “Están invitados” -->
+<h1 class="text-golden">Están Invitados</h1>
+
+<!-- 9. Texto celebración -->
+<p>Nos encanta que sean parte de esta celebración y compartan este momento único con nosotros.</p>
+
+<!-- 10. Fecha del evento -->
+<h5 class="text-golden">02 . 08 . 2025</h5>
+
+<!-- 11. Contador regresivo -->
+<div id="contador">
+  <div class="countdown-circle"><span id="dias">00</span><span>días</span></div>
+  <div class="countdown-circle"><span id="horas">00</span><span>horas</span></div>
+  <div class="countdown-circle"><span id="minutos">00</span><span>minutos</span></div>
+  <div class="countdown-circle"><span id="segundos">00</span><span>segundos</span></div>
+</div>
+
+<!-- 12. Botón agregar al calendario -->
+<div class="section-calendar">
+  <a href="https://calendar.google.com/calendar/event?action=TEMPLATE&tmeid=MTRrZjUyZmoxaDI5bnB0a3JrZWVibThwaWUgY182OTRhZWE0ODlhN2FkZTJiYzRmYjRiNGExYTE2ZmY3ZDY2ZjAzNzFlMTgwY2I1MzZmM2M3YzE2NGUxZWMwOGIxQGc&tmsrc=c_694aea489a7ade2bc4fb4b4a1a16ff7d66f0371e180cb536f3c7c164e1ec08b1%40group.calendar.google.com" target="_blank">Agregar al Calendario</a>
+</div>
+
+<!-- 13. Imagen + reproductor de música -->
+<section class="section-music">
+  <h5>"Mi canción favorita"</h5>
+  <audio id="musica" controls loop>
+    <source src="/Fonseca - Que Suerte Tenerte - Letra (1) (online-audio-converter.com).mp3" type="audio/mpeg">
+    Tu navegador no soporta la reproducción de audio.
+  </audio>
+</section>
+
+<!-- 14. Imagen -->
+<img src="/imagenes/14.png" alt="Decoración" width="100%">
+
+<!-- 15. Nombre del invitado + pases -->
+<section class="section invitation-info-section">
+  <h3 id="guest-name"></h3>
+  <h3 id="passes"></h3>
+</section>
+
+<!-- 16. Imagen -->
+<img src="/imagenes/15.png" alt="Decoración" width="100%">
+
+<!-- 17. Confirmar asistencia -->
+<section>
+  <h3>Confirmar Asistencia</h3>
+  <lord-icon src="https://cdn.lordicon.com/fjvfsqea.json" trigger="loop" delay="2000" stroke="light" colors="primary:#4682B4,secondary:#B0C4DE" style="width:200px;height:200px"></lord-icon>
+  <p>Para nosotros es muy importante que confirmes tu asistencia antes del 20 de Julio, o bien indicarnos si no podrás acompañarnos.</p>
+  <button onclick="confirmarAsistencia()">Confirmar</button>
+</section>
+
+<!-- 18. Imagen -->
+<img src="/imagenes/16.png" alt="Decoración" width="100%">
+
+<!-- 19. Itinerario con íconos -->
+<section>
+  <div class="ceremony fade-in-element">
+    <lord-icon src="https://cdn.lordicon.com/jqmftaai.json" trigger="loop" delay="2000" stroke="light" colors="primary:#4682B4,secondary:#B0C4DE" style="width:200px;height:200px"></lord-icon>
+    <h3>Ceremonia</h3>
+    <p>Pendiente</p>
+    <p>02 Agosto | 17:00 hrs</p>
+    <p>pendiente</p>
+    <button onclick="elegirAplicacion()">Cómo llegar</button>
+  </div>
+  <div class="party fade-in-element">
+    <lord-icon src="https://cdn.lordicon.com/nsgykrsg.json" trigger="loop" delay="2000" stroke="light" colors="primary:#4682B4,secondary:#B0C4DE" style="width:200px;height:200px"></lord-icon>
+    <h3>Fiesta</h3>
+    <p>Hotel Barceló Salones Naciones IV-VI</p>
+    <p>11 calle 6-48, Ciudad de Guatemala</p>
+    <p>02 Agosto | 18:30 hrs</p>
+    <button onclick="elegirAplicacionOtraDireccion()">Cómo llegar</button>
+  </div>
+</section>
+
+<!-- 20. Imagen -->
+<img src="/imagenes/17.png" alt="Decoración" width="100%">
+
+<!-- 21. Lluvia de sobres -->
+<section class="section-gifts">
+  <lord-icon src="https://cdn.lordicon.com/kezeezyg.json" trigger="loop" delay="2000" stroke="light" colors="primary:#4682B4,secondary:#B0C4DE" style="width:200px;height:200px"></lord-icon>
+  <h3>Lluvia de Sobres</h3>
+  <p>Lo que más queremos es compartir contigo nuestro gran día, pero agradecemos mucho el gesto de un obsequio. Tendremos un cofre en la entrada para que puedas dejar tu sobre con efectivo.</p>
+</section>
+
+<!-- 23. Playlist -->
+<section class="section-playlist">
+  <lord-icon src="https://cdn.lordicon.com/vvlnxtgv.json" trigger="loop" delay="2000" stroke="light" colors="primary:#4682B4,secondary:#B0C4DE" style="width:200px;height:200px"></lord-icon>
+  <h3>Playlist</h3>
+  <p>Nos encantaría que nos sugieras esas canciones que sabes que son geniales y no pueden faltar.</p>
+  <button onclick="window.open('https://open.spotify.com/playlist/4DTJ86D45WWcQv6uIG5z5I?si=b5e414624419483b&pt=d1994cca254feffeb2fe98b6d27b251d', '_blank')">Abrir playlist</button>
+</section>
+
+<!-- 24. Imagen -->
+<img src="/imagenes/18.png" alt="Decoración" width="100%">
+
+<!-- 25. Dress Code -->
+<section>
+  <lord-icon src="https://cdn.lordicon.com/okgbpdra.json" trigger="loop" delay="2000" stroke="light" colors="primary:#4682B4,secondary:#B0C4DE" style="width:200px;height:200px"></lord-icon>
+  <h3>Dress Code</h3>
+  <p>Celeste y azul reservados para la quinceañera.</p>
+</section>
+
+<!-- 27. Galería -->
+<section>
+  <h3>Galería</h3>
+  <div class="galeria">
+    <img src="/imagenes/v2.jpg" alt="Foto 1" onclick="changePhoto(this)">
+    <img src="/imagenes/v3.jpg" alt="Foto 2" onclick="changePhoto(this)">
+    <img src="/imagenes/v4.jpg" alt="Foto 3" onclick="changePhoto(this)">
+    <img src="/imagenes/v5.jpg" alt="Foto 4" onclick="changePhoto(this)">
+    <img src="/imagenes/v6.jpg" alt="Foto 5" onclick="changePhoto(this)">
+    <img src="/imagenes/c1.jpg" alt="Foto 7" onclick="changePhoto(this)">
+  </div>
+</section>
+
+<!-- Modal para imagen ampliada -->
+<div id="gallery-modal" class="modal hidden">
+  <span id="modal-close">&times;</span>
+  <img id="modal-image" src="" alt="Imagen ampliada">
+</div>
+
+
+<!-- 29. Hashtag -->
+<section class="section-filter">
+  <lord-icon src="https://cdn.lordicon.com/wsaaegar.json" trigger="loop" delay="2000" stroke="light" colors="primary:#B0C4DE,secondary:#B0C4DE" style="width:200px;height:200px"></lord-icon>
+  <h3>#misquincetita</h3>
+  <p>Subí tus fotos a Instagram con nuestro hashtag para convertir las memorias en eternas.</p>
+</section>
+
+<!-- 30. Álbum digital -->
+<section class="album-section">
+  <h3>¡Hagamos los recuerdos inolvidables!</h3>
+  <img src="/imagenes/QR.jpg" alt="Código QR" width="300">
+  <p>Escaneá el código QR o usá el botón para subir tus fotos</p>
+  <a class="upload-btn" href="https://drive.google.com/drive/folders/1Xg8k3dkJcXIgqsrV6bYVJQJ_MZsQyLZ-?usp=sharing" target="_blank">Subir Fotos</a>
+</section>
+
+<!-- 31. Imagen -->
+<img src="/imagenes/v1.jpg" alt="Foto final" width="100%">
+
+<!-- 32. Frase final -->
+<section class="section-quote">
+  <h3>Tu presencia es el mejor regalo. Nos sentimos bendecidos de compartir este día tan especial contigo.</h3>
+</section>
+
+<!-- 33. Footer -->
+<footer>
+  <div class="section-social-icons">
+    <a href="https://www.facebook.com/thetwodesign" target="_blank"><i class="fab fa-facebook-f"></i></a>
+    <a href="https://www.instagram.com/thetwodesign/" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://wa.me/50236011737" target="_blank"><i class="fab fa-whatsapp"></i></a>
+  </div>
+  <div class="section-logo">
+    <img src="/imagenes/2.png" alt="Logo" width="100">
+  </div>
+</footer>
+
+    </div>
+       
+</body>
+</html>
+
+

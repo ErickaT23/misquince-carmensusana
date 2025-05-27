@@ -1,0 +1,519 @@
+/* === VARIABLES === */
+:root {
+  --font-title: "Imperial Script", cursive;
+  --font-subtitle: "Cormorant Infant", serif;
+  --color-golden-gradient: linear-gradient(to right, #b29a68, #d4af37, #c5a253);
+  --color-text:SteelBlue;
+  --color-background: #fffaf5;
+  --shadow-default: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+#sparkle-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9998;
+}
+.sparkle {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: radial-gradient(circle, #fff8dc 0%, #ffd700 80%, transparent 100%);
+  border-radius: 50%;
+  animation: sparkle-fade 2s ease-out forwards;
+}
+@keyframes sparkle-fade {
+  0% { opacity: 1; transform: scale(1); }
+  100% { opacity: 0; transform: scale(2); }
+}
+
+/* === RESETS === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-background);
+  color: var(--color-text);
+  text-align: center;
+}
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+/* === TEXTOS DORADOS === */
+.text-golden {
+  background: var(--color-golden-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.subtitulo {
+  font-family: var(--font-subtitle);
+  font-size: 1.5rem;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+/* === ENCABEZADOS === */
+h1, h2, h3, h4 {
+  font-family: var(--font-title);
+  font-weight: 400;
+  font-style: italic;
+}
+
+h1 {
+  font-size: 4rem;
+  margin: 20px 0 10px;
+}
+
+h2 {
+  font-size: 2.2rem;
+  margin: 10px 0;
+}
+
+h3 {
+  font-size: 1.8rem;
+  margin: 10px 0;
+  background: var(--color-golden-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+h4{
+  font-size: 4rem;
+}
+/* === PÁRRAFOS === */
+p {
+  font-size: 1.2rem;
+  margin: 15px auto;
+  max-width: 700px;
+  font-family: var(--font-subtitle);
+}
+/* SOBRE CERRADO */
+#envelope {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: var(--background-color, #fffbf7);
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* Mitades del sobre */
+#envelope-top,
+#envelope-bottom {
+  width: 100%;
+  height: 100%;
+  background-image: url('/imagenes/sobre.png'); /* Cambia por tu imagen */
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  transition: transform 1s ease-in-out;
+}
+
+/* Parte superior */
+#envelope-top {
+  background-position: top center;
+}
+/* Parte inferior */
+#envelope-bottom {
+  background-position: bottom center;
+}
+/* Sello central */
+#seal {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  background: SteelBlue;
+  border-radius: 50%;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Imperial Script', cursive;
+  font-size: 2rem;
+  color: white;
+  cursor: pointer;
+  z-index: 10000;
+  text-align: center;
+  transition: transform 0.3s;
+}
+#seal:hover {
+  transform: scale(1.05);
+}
+#seal h2 {
+  margin: 0;
+  padding: 0;
+  font-size: 2rem;
+  font-style: italic;
+}
+/* EFECTO DE APERTURA DEL SOBRE */
+.open #envelope-top {
+  transform: translateY(-100%);
+}
+.open #envelope-bottom {
+  transform: translateY(100%);
+}
+/* Ocultar cuando se abre */
+.hidden {
+  display: none !important;
+}
+h4{
+  margin-top: -120px;
+  background: var(--color-golden-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  z-index: 20;
+  position: relative;
+}
+.padres-texto {
+  font-size: 2rem;
+  font-style: italic;
+  margin-top: 20px;
+}
+h5{
+  background: var(--color-golden-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  z-index: 20;
+  position: relative;
+  font-size: 2rem;
+  font-family: var(--font-title);
+}
+/* === CONTADOR === */
+#contador {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin: 20px 0;
+}
+.countdown-circle {
+  width: 75px;
+  height: 75px;
+  background: rgb(223, 235, 250);
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #b29a68;
+  box-shadow: var(--shadow-default);
+  font-family: var(--font-subtitle);
+  font-size: 1rem;
+}
+
+.countdown-circle span:first-child {
+  font-size: 1.5rem;
+  font-weight: bold;
+  font-family: var(--font-subtitle);
+}
+
+/* === SECCIÓN CALENDARIO === */
+.section-calendar {
+  margin: 20px 0;
+}
+
+.section-calendar a {
+  padding: 10px 20px;
+  background-color: LightSteelBlue;
+  color: white;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.section-calendar a:hover {
+  background-color: #fbdae0;
+}
+
+/* === BOTONES === */
+button {
+  background-color: lightsteelblue;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-family: var(--font-subtitle);
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: var(--shadow-default);
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #fbdae0;
+}
+.upload-btn{
+  background-color: lightsteelblue;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-family: var(--font-subtitle);
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: var(--shadow-default);
+  transition: background-color 0.3s;
+  margin-bottom: 20px;
+}
+.upload-btn:hover {
+  background-color: #fbdae0;
+}
+.album-section a{
+  text-decoration: none;
+  cursor: pointer;
+}
+/* === GALERÍA === */
+.galeria {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.galeria img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: var(--shadow-default);
+  transition: transform 0.3s;
+}
+
+.galeria img:hover {
+  transform: scale(1.05);
+}
+
+/* === SECCIONES === */
+section {
+  position: relative;
+}
+
+/* === FOOTER === */
+footer {
+  background-color: steelblue;
+  color: white;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+
+footer img {
+  margin-top: 10px;
+}
+
+.section-social-icons a {
+  color: white;
+  margin: 0 10px;
+  font-size: 2rem;
+  text-decoration: none;
+}
+
+/* === LORD ICONS === */
+lord-icon {
+  margin: 20px auto;
+  display: block;
+}
+@media (max-width: 768px) {
+  /* Títulos más pequeños */
+  h1 {
+    font-size: 4rem;
+    line-height: 1;
+  }
+  h2 {
+    font-size: 4rem;
+    line-height: 1.3;
+  }
+  h3 {
+    font-size: 2.8rem;
+  }
+h4{
+  font-size: 4rem;
+}
+  p {
+    font-size: 1.5rem;
+  }
+  /* Íconos de lord-icon más pequeños y centrados */
+  lord-icon {
+    width: 200px !important;
+    height: 200px !important;
+    margin: 0 auto;
+  }
+  /* Ajustar botones */
+  button, .upload-btn, .section-calendar a {
+    font-size: 1.5rem;
+    padding: 10px 16px;
+    width: 80%;
+    max-width: 280px;
+    margin: 10px auto;
+    display: block;
+    font-weight: 300;
+  }
+  /* Galería de imágenes: 2 por fila */
+  .galeria {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+  .galeria img {
+    width: 45%;
+    height: auto;
+  }
+  /* Contador regresivo: en columnas */
+  #contador {
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+  }
+  .countdown-circle {
+    width: 70px;
+    height: 70px;
+  }
+  .countdown-circle span {
+    font-size: 1rem;
+  }
+
+  /* Reproductor de música */
+  .section-music img {
+    width: 80%;
+    margin-bottom: 10px;
+  }
+
+  audio {
+    width: 90%;
+  }
+
+  /* Imágenes decorativas full width */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* QR code responsive */
+  .album-section img {
+    width: 80% !important;
+    margin: 20px auto;
+    display: block;
+  }
+
+  /* Footer logos */
+  .section-logo img {
+    width: 80px;
+    margin-top: 10px;
+  }
+
+  /* Íconos sociales más pequeños */
+  .section-social-icons i {
+    font-size: 24px;
+  }
+  /* Sello central */
+    #seal {
+      width: 120px;
+      height: 120px;
+      font-size: 1.5rem;
+    }
+    #seal h2 {
+      font-size: 1.7rem;
+    }
+}
+/* Contenedor que entra con animación */
+.fade-in-section {
+  animation: fadeInZoom 1.5s ease-out forwards;
+}
+
+/* Imagen suave y elegante */
+.intro-img {
+  width: 90%;
+  max-width: 600px;
+  margin: 0 auto 20px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  opacity: 0;
+  animation: fadeInUp 2s ease forwards 0.5s;
+}
+
+/* Botón animado */
+.fade-in-button {
+  opacity: 0;
+  animation: fadeInUp 1.5s ease forwards 1s;
+  background-color: #d4af37;
+  color: white;
+  font-weight: bold;
+  font-size: 1.2rem;
+  padding: 12px 24px;
+  border-radius: 10px;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.3s;
+}
+.fade-in-button:hover {
+  background-color: #b28d31;
+}
+
+/* Animaciones */
+@keyframes fadeInZoom {
+  0% { opacity: 0; transform: scale(0.95); }
+  100% { opacity: 1; transform: scale(1); }
+}
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(40px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+.modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  z-index: 10000;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.85);
+}
+
+.modal img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 12px;
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
+}
+
+#modal-close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 3rem;
+  color: white;
+  cursor: pointer;
+  z-index: 10001;
+  font-weight: bold;
+}
+
+#modal-close:hover {
+  color: steelblue;
+}
+
+.hidden {
+  display: none !important;
+}
+
